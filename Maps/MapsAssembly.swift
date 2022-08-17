@@ -39,7 +39,7 @@ final class MapsAssembly: IMapsAssembly {
         for i in 0..<items.count {
             items[i].image = UIImage(systemName: images[i])
             items[i].title = title[i]
-            items[i].badgeValue = "1"
+//            items[i].badgeValue = "1"
         }
         
         mainTabBarController.tabBar.backgroundColor = .systemBackground
