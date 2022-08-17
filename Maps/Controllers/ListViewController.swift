@@ -72,17 +72,6 @@ extension ListViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let point = places[indexPath.row]
-        
-        print(point.title!)
-        
         delegate.goToplace(place: point)
-        
-        print("Seleceted \(indexPath.row) \(point)")
-        
     }
 }
-
-
-
-
-

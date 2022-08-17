@@ -39,7 +39,6 @@ func getCoordinateFrom(city: String, completion: @escaping(_ coordinate: CLLocat
 
 extension MapViewController: PresenterToMapViewProtocol {
     func goToplace(place: Place) {
-        print("hell")
         self.tabBarController?.selectedIndex = 0
         let center = place.coordinate
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
