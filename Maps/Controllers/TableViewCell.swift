@@ -7,13 +7,19 @@
 
 import UIKit
 
+struct Model {
+    let latitude: Double
+    let longitude: Double
+    let title: String
+    let subTitle: String
+}
+
 class TableViewCell: UITableViewCell {
 
     // MARK: UI
     lazy var lable: UILabel = {
         let lable = UILabel()
         lable.text = "Place"
-//        lable.font = .systemFont(ofSize: 20)
         lable.textAlignment = .left
         lable.adjustsFontSizeToFitWidth = true
         lable.translatesAutoresizingMaskIntoConstraints = false

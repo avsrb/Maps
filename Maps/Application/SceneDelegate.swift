@@ -16,11 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let tbc = MainTabBarController()
-        tbc.tabBar.barTintColor = .systemBackground
-        tbc.selectedIndex = 0
-        window?.rootViewController = tbc
-        
+        window?.rootViewController = MapsAssembly().assemble()        
         window?.makeKeyAndVisible()
     }
 

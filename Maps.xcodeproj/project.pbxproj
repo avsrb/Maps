@@ -16,6 +16,7 @@
 		AC9DCEA328ACE5A200202577 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA228ACE5A200202577 /* ListViewController.swift */; };
 		AC9DCEA528ACE5EA00202577 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */; };
 		AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA628ACF20500202577 /* TableViewCell.swift */; };
+		AC9DCEAB28AD0D3900202577 /* MapsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AC9DCEA228ACE5A200202577 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		AC9DCEA628ACF20500202577 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				AC9DCE9D28ACCB1900202577 /* Application */,
 				AC9DCE9C28ACCB0600202577 /* Controllers */,
 				AC9DCE9B28ACCAFB00202577 /* Resources */,
+				AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				AC9DCE8828ACC87000202577 /* AppDelegate.swift in Sources */,
 				AC9DCEA528ACE5EA00202577 /* MoreViewController.swift in Sources */,
 				AC9DCEA328ACE5A200202577 /* ListViewController.swift in Sources */,
+				AC9DCEAB28AD0D3900202577 /* MapsAssembly.swift in Sources */,
 				AC9DCE8A28ACC87000202577 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
