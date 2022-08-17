@@ -19,7 +19,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         setViewControllers([vc1, vc2, vc3], animated: false)
-        
         guard let items = tabBar.items else { return }
         
         let images = ["map", "list.star", "ellipsis"]

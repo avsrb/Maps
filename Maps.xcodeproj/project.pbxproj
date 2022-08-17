@@ -15,6 +15,7 @@
 		AC9DCEA128ACD1C900202577 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA028ACD1C900202577 /* MainTabBarController.swift */; };
 		AC9DCEA328ACE5A200202577 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA228ACE5A200202577 /* ListViewController.swift */; };
 		AC9DCEA528ACE5EA00202577 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */; };
+		AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA628ACF20500202577 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		AC9DCEA028ACD1C900202577 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		AC9DCEA228ACE5A200202577 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		AC9DCEA628ACF20500202577 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				AC9DCE8B28ACC87000202577 /* MapViewController.swift */,
 				AC9DCEA228ACE5A200202577 /* ListViewController.swift */,
 				AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */,
+				AC9DCEA628ACF20500202577 /* TableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				AC9DCE8C28ACC87000202577 /* MapViewController.swift in Sources */,
 				AC9DCEA128ACD1C900202577 /* MainTabBarController.swift in Sources */,
+				AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */,
 				AC9DCE8828ACC87000202577 /* AppDelegate.swift in Sources */,
 				AC9DCEA528ACE5EA00202577 /* MoreViewController.swift in Sources */,
 				AC9DCEA328ACE5A200202577 /* ListViewController.swift in Sources */,
