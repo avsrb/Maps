@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol PresenterToMapViewProtocol: AnyObject {
+    func goToplace(place: Place)
+}
+
 class ListViewController: UIViewController {
     
+    var delegate: PresenterToMapViewProtocol!
+
     var places: [Place] = Place.favotite
     // MARK: UI
     private lazy var tableView : UITableView = {
@@ -62,12 +68,17 @@ extension ListViewController {
 }
 
 extension ListViewController {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
-
+        let point = places[indexPath.row]
         
-        print("Seleceted \(indexPath.row)")
+        print(point.title!)
+        
+        delegate.goToplace(place: point)
+        
+        print("Seleceted \(indexPath.row) \(point)")
+        
     }
 }
 

@@ -5,16 +5,25 @@
 //  Created by Artem Serebriakov on 17.08.2022.
 //
 
-import Foundation
+import MapKit
+import UIKit
 
-struct Place {
-    let title: String
-    let latitude: Double
-    let longitude: Double
+class Place: NSObject, MKAnnotation {
+    var title: String?
+    var coordinate: CLLocationCoordinate2D
+    var info: String
+    var color: UIColor
     
+    init(title: String, coordinate: CLLocationCoordinate2D, info: String, color: UIColor = .red) {
+        self.title = title
+        self.coordinate = coordinate
+        self.info = info
+        self.color = color
+    }
+
     static let favotite = [
-        Place(title: "Kaзань", latitude: 55.796289, longitude: 49.108795),
-        Place(title: "Kaзань", latitude: 55.796289, longitude: 49.108795),
-        Place(title: "Kaзань", latitude: 55.796289, longitude: 49.108795)
+        Place(title: "Kaзань", coordinate:CLLocationCoordinate2D(latitude: 55.796289, longitude: 49.108795), info: "yes"),
+        Place(title: "Kaзань", coordinate:CLLocationCoordinate2D(latitude: 55.796289, longitude: 49.108795), info: "yes"),
+        Place(title: "Kaзань", coordinate:CLLocationCoordinate2D(latitude: 55.796289, longitude: 49.108795), info: "yes"),
     ]
 }

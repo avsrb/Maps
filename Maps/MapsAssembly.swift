@@ -18,10 +18,15 @@ final class MapsAssembly: IMapsAssembly {
    
     func assemble() -> UITabBarController {
         let mainTabBarController = MainTabBarController()
-        let vc1 = UINavigationController(rootViewController: MapViewController())
-        let vc2 = UINavigationController(rootViewController: ListViewController())
-        let vc3 = UINavigationController(rootViewController: MoreViewController())
-
+        let vc1 = MapViewController()
+        let vc2 = ListViewController()
+        let vc3 = MoreViewController()
+        
+        vc2.delegate = vc1
+        
+//        let nvc1 = UINavigationController(rootViewController: vc1)
+//        let nvc2 = UINavigationController(rootViewController: vc2)
+//        let nvc3 = UINavigationController(rootViewController: vc3)
 
         mainTabBarController.setViewControllers([vc1, vc2, vc3], animated: false)
         guard let items = mainTabBarController.tabBar.items else {
@@ -40,7 +45,8 @@ final class MapsAssembly: IMapsAssembly {
         mainTabBarController.tabBar.backgroundColor = .systemBackground
         mainTabBarController.selectedIndex = 0
         mainTabBarController.modalPresentationStyle = .fullScreen
-
+        UITabBar.appearance().barTintColor = .systemBackground
+        
         
         return mainTabBarController
     }
