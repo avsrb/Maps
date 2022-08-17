@@ -16,8 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let vc = ViewController()
-        window?.rootViewController = vc
+        let tbc = MainTabBarController()
+        tbc.tabBar.barTintColor = .systemBackground
+        tbc.selectedIndex = 0
+        window?.rootViewController = tbc
         
         window?.makeKeyAndVisible()
     }
