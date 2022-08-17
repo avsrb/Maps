@@ -15,11 +15,10 @@ class MapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+//        view.backgroundColor = .systemBackground
         view = mapView
         mapView.showsUserLocation = true
-//        navigationController?.navigationBar.prefersLargeTitles = true
-        //lat=55.796289&lon=49.108795
+        
         let initialLocation = CLLocation(latitude: 55.796289, longitude: 49.108795)
         mapView.centerLocation(initialLocation)
     }

@@ -17,6 +17,7 @@
 		AC9DCEA528ACE5EA00202577 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */; };
 		AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA628ACF20500202577 /* TableViewCell.swift */; };
 		AC9DCEAB28AD0D3900202577 /* MapsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */; };
+		AC9DCEAD28AD12A700202577 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEAC28AD12A700202577 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AC9DCEA428ACE5EA00202577 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		AC9DCEA628ACF20500202577 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsAssembly.swift; sourceTree = "<group>"; };
+		AC9DCEAC28AD12A700202577 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				AC9DCE9C28ACCB0600202577 /* Controllers */,
 				AC9DCE9B28ACCAFB00202577 /* Resources */,
 				AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */,
+				AC9DCEAC28AD12A700202577 /* Model.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC9DCEAD28AD12A700202577 /* Model.swift in Sources */,
 				AC9DCE8C28ACC87000202577 /* MapViewController.swift in Sources */,
 				AC9DCEA128ACD1C900202577 /* MainTabBarController.swift in Sources */,
 				AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */,

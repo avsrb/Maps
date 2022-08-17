@@ -7,13 +7,6 @@
 
 import UIKit
 
-struct Model {
-    let latitude: Double
-    let longitude: Double
-    let title: String
-    let subTitle: String
-}
-
 class TableViewCell: UITableViewCell {
 
     // MARK: UI

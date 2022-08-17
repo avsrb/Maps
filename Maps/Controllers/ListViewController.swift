@@ -9,6 +9,7 @@ import UIKit
 
 class ListViewController: UIViewController {
     
+    var places: [Place] = Place.favotite
     // MARK: UI
     private lazy var tableView : UITableView = {
         let tableView = UITableView()
@@ -35,17 +36,14 @@ class ListViewController: UIViewController {
 extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return places.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: idCell, for: indexPath) as! TableViewCell
-//        let person = people[indexPath.row]
-//
-//        cell.name.text = person.name
-//        cell.date.text = person.date
-//        cell.reason.text = person.descriptionDead
-//        cell.lable.text = "place"
+        let place = places[indexPath.row]
+        
+        cell.lable.text = place.title
         return cell
     }
 }
@@ -60,6 +58,16 @@ extension ListViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+extension ListViewController {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! TableViewCell
+
+        
+        print("Seleceted \(indexPath.row)")
     }
 }
 

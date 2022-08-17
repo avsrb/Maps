@@ -11,7 +11,6 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalPresentationStyle = .fullScreen
     }
 }
 

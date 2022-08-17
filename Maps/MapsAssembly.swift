@@ -39,6 +39,8 @@ final class MapsAssembly: IMapsAssembly {
         
         mainTabBarController.tabBar.backgroundColor = .systemBackground
         mainTabBarController.selectedIndex = 0
+        mainTabBarController.modalPresentationStyle = .fullScreen
+
         
         return mainTabBarController
     }
