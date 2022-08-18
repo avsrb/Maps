@@ -20,10 +20,9 @@ class MapViewController: UIViewController {
         segmentedControll.backgroundColor = .white
         segmentedControll.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         segmentedControll.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: .normal)
+        segmentedControll.addTarget(self, action: #selector(changeMapViewType(_:)), for: .valueChanged)
         return segmentedControll
     }()
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +33,21 @@ class MapViewController: UIViewController {
         let initialLocation = CLLocation(latitude: 55.796289, longitude: 49.108795)
         mapView.centerLocation(initialLocation)
         
-        segmentedControll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        segmentedControll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         segmentedControll.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    @objc func changeMapViewType(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        case 2:
+            mapView.mapType = .satellite
+        default:
+            print(sender.selectedSegmentIndex)
+        }
     }
     
 }
