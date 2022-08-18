@@ -12,14 +12,30 @@ class MapViewController: UIViewController {
 
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
+    let segmentedControll : UISegmentedControl = {
+        let segmentedControll = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        segmentedControll.selectedSegmentIndex = 0
+        segmentedControll.selectedSegmentTintColor = .systemBlue
+        segmentedControll.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControll.backgroundColor = .white
+        segmentedControll.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        segmentedControll.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.systemBlue], for: .normal)
+        return segmentedControll
+    }()
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .systemBackground
+        mapView.addSubview(segmentedControll)
         view = mapView
         mapView.showsUserLocation = true
         let initialLocation = CLLocation(latitude: 55.796289, longitude: 49.108795)
         mapView.centerLocation(initialLocation)
+        
+        segmentedControll.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        segmentedControll.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
 }
@@ -43,6 +59,36 @@ extension MapViewController: PresenterToMapViewProtocol {
         let center = place.coordinate
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         self.mapView.setRegion(region, animated: true)
+        
+    }
+}
+
+extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? Place else {
+            return nil
+        }
+        let identifier = "place"
+        let view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: "place") as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let place = view.annotation as? Place else {
+            return
+        }
+        
+        let launchOption = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        
         
     }
 }
