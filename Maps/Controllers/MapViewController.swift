@@ -35,7 +35,6 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .systemBackground
         mapView.addSubview(segmentedControll)
         mapView.addSubview(locationButton)
 
@@ -56,7 +55,61 @@ class MapViewController: UIViewController {
         for place in Place.favotite {
             mapView.addAnnotation(place)
         }
-
+        
+        mapView.register(PlaceView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationEnabled()
+    }
+    
+    func setupManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func checkLocationEnabled() {
+        if CLLocationManager.locationServicesEnabled() {
+            setupManager()
+            checkAutorization()
+        } else {
+            showAlert(title: "У вас выключена служба геолокации", message: "Хотите включить?", urlString: "App-Prefs:root=LOCATION_SERVICES")
+        }
+    }
+    
+    func showAlert(title: String, message: String, urlString: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let settingAction = UIAlertAction(title: "Настройки", style: .default) { alert in
+            if let url = URL(string: urlString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alert.addAction(settingAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+      
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func checkAutorization() {
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedAlways:
+            break
+        case .authorizedWhenInUse:
+            mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
+            break
+        case .denied:
+            showAlert(title: "Вы запретили использование местоположения", message: "Хотите изменить это?", urlString: UIApplication.openSettingsURLString)
+            break
+        case .restricted:
+            break
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        @unknown default:
+            fatalError()
+        }
     }
     
     @objc func changeMapViewType(_ sender: UISegmentedControl) {
@@ -72,10 +125,12 @@ class MapViewController: UIViewController {
         }
     }
     
-    @objc func curentLocation () {
-        print("curentLocation")
+    @objc func curentLocation() {
+        if let location = locationManager.location?.coordinate {
+            let region = MKCoordinateRegion.init(center: location, latitudinalMeters: 400, longitudinalMeters: 400)
+            mapView.setRegion(region, animated: true)
+        }
     }
-    
 }
 
 extension MapViewController: PresenterToMapViewProtocol {
@@ -86,12 +141,9 @@ extension MapViewController: PresenterToMapViewProtocol {
     }
 }
 
-private extension MKMapView {
+extension MKMapView {
     func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
-        let coordinateRegion = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: regionRadius,
-            longitudinalMeters: regionRadius)
+        let coordinateRegion = MKCoordinateRegion( center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         setRegion(coordinateRegion, animated: true)
     }
 }
@@ -121,4 +173,28 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
     
+    func mapView( _ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+      guard let Place = view.annotation as? Place else {
+        return
+      }
+
+      let launchOptions = [
+        MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+      ]
+      Place.mapItem?.openInMaps(launchOptions: launchOptions)
+    }
+    
+}
+
+
+extension MapViewController: CLLocationManagerDelegate {
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.last?.coordinate {
+//            let region = MKCoordinateRegion(center: location, latitudinalMeters: 5000, longitudinalMeters: 5000)
+//            mapView.setRegion(region, animated: true)
+//        }
+//    }
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkAutorization()
+    }
 }

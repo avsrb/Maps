@@ -7,6 +7,7 @@
 
 import MapKit
 import UIKit
+import Contacts
 
 class Place: NSObject, MKAnnotation {
     let title: String?
@@ -28,6 +29,19 @@ class Place: NSObject, MKAnnotation {
       return locationName
     }
     
+    var mapItem: MKMapItem? {
+        guard let location = locationName else {
+            return nil
+        }
+        
+        let addressDict = [CNPostalAddressStreetKey: location]
+        let placemark = MKPlacemark(
+            coordinate: coordinate,
+            addressDictionary: addressDict)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = title
+        return mapItem
+    }
     
     static let favotite = [
         Place(title: "Kaзань",

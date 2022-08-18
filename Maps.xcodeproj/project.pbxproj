@@ -18,6 +18,7 @@
 		AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEA628ACF20500202577 /* TableViewCell.swift */; };
 		AC9DCEAB28AD0D3900202577 /* MapsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */; };
 		AC9DCEAD28AD12A700202577 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEAC28AD12A700202577 /* Model.swift */; };
+		AC9DCEAF28AE659E00202577 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9DCEAE28AE659E00202577 /* PlaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AC9DCEA628ACF20500202577 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsAssembly.swift; sourceTree = "<group>"; };
 		AC9DCEAC28AD12A700202577 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AC9DCEAE28AE659E00202577 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				AC9DCE9B28ACCAFB00202577 /* Resources */,
 				AC9DCEAA28AD0D3900202577 /* MapsAssembly.swift */,
 				AC9DCEAC28AD12A700202577 /* Model.swift */,
+				AC9DCEAE28AE659E00202577 /* PlaceView.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				AC9DCEAD28AD12A700202577 /* Model.swift in Sources */,
 				AC9DCE8C28ACC87000202577 /* MapViewController.swift in Sources */,
+				AC9DCEAF28AE659E00202577 /* PlaceView.swift in Sources */,
 				AC9DCEA128ACD1C900202577 /* MainTabBarController.swift in Sources */,
 				AC9DCEA728ACF20500202577 /* TableViewCell.swift in Sources */,
 				AC9DCE8828ACC87000202577 /* AppDelegate.swift in Sources */,
